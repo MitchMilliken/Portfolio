@@ -1,0 +1,50 @@
+﻿@model AnimalsViewModel
+
+<h1>Animals</h1>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Age</th>
+            <th>Extinct</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var animal in Model.Animals)
+        {
+            <tr>
+                <td>@animal.Id</td>
+                <td>@animal.Name</td>
+                <td>@animal.Color</td>
+                <td>@animal.Age</td>
+                <td>@animal.Extinct</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+
+
+<form asp-controller="Animals" asp-action="Create">
+    <label>Name</label>
+    <input asp-for="Name" />
+
+    <label>Color</label>
+    <input asp-for="Color" />
+
+    <label>Age</label>
+    <input asp-for="Age" />
+
+    <label>Extinct</label>
+    <input asp-for="Extinct" />
+
+    <input type="submit" value="Submit" />
+</form>
+
