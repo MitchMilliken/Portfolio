@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "tutor1", "tutor1\tutor1.csproj", "{28AD1955-74EB-4593-8DAC-00E5B0EB9860}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfolio", "tutor1\Portfolio.csproj", "{28AD1955-74EB-4593-8DAC-00E5B0EB9860}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "AnimalsDatabase", "AnimalsDatabase\AnimalsDatabase.sqlproj", "{16E0B47F-0C15-4D79-9917-AEC1ABFE8A7E}"
 EndProject

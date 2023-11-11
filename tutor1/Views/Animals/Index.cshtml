@@ -1,50 +1,71 @@
 ﻿@model AnimalsViewModel
 
+@{
+    ViewData["Title"] = "Animals";
+
+}
+
 <h1>Animals</h1>
 
+<partial name="_AnimalsTable" model="Model"/>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Color</th>
-            <th>Age</th>
-            <th>Extinct</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var animal in Model.Animals)
-        {
-            <tr>
-                <td>@animal.Id</td>
-                <td>@animal.Name</td>
-                <td>@animal.Color</td>
-                <td>@animal.Age</td>
-                <td>@animal.Extinct</td>
-            </tr>
-        }
-    </tbody>
-
-</table>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#animals').dataTable({
+                "paging": false,
+                "filter": false
+            });
+        });
 
 
+    </script>
 
+    <partial name="_ValidationScriptsPartial"/>
+}
+
+<div class="=row">
+    <div class="col-8 col-sm-7 col-md-5 col-lg-3 col-xl-2">
 
 <form asp-controller="Animals" asp-action="Create">
-    <label>Name</label>
-    <input asp-for="Name" />
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <small>
+        <span asp-validation-for="Name" class="text-danger"></span>
+        </small>
+    </div>
 
-    <label>Color</label>
-    <input asp-for="Color" />
+    <div class="mb-3">
+        <label asp-for="Color" class="form-label"></label>
+        <input asp-for="Color" class="form-control" />
+        <small>
+            <span asp-validation-for="Color" class="text-danger"></span>
+        </small>
+    </div>
 
-    <label>Age</label>
-    <input asp-for="Age" />
+    <div class="mb-3">
+        <label asp-for="Age" class="form-label"></label>
+        <input asp-for="Age" class="form-control" min="0"/>
+        <small>
+            <span asp-validation-for="Age" class="text-danger"></span>
+        </small>
+    </div>
 
-    <label>Extinct</label>
-    <input asp-for="Extinct" />
+    <div class="mb-3">
+        <label asp-for="Extinct" class="form-label"></label>
+        <input asp-for="Extinct" class="form-check-input" />
+    </div>
 
-    <input type="submit" value="Submit" />
+
+    <input type="submit" value="Submit" class="btn btn-primary" />
+    <input type="reset" class="btn btn-secondary" />
 </form>
 
+<form method="post" asp-action="ClearTable" asp-controller="Animals">
+    <button type="submit">Clear Table</button>
+</form>
+
+
+    </div>
+</div>

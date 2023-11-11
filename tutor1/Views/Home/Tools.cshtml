@@ -18,23 +18,33 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
 
+          <script>
+            function changed(){
+            document.getElementById("calcu").classList.add("but_sty2")};
+          </Script>
+
     <!-- For styling -->
     <style>
-        table {
-            border: 1px solid black;
-            margin-left: auto;
-            margin-right: auto;
-        }
 
+        .but_sty2 {
+            background-color: grey;
+        }
+  
         input[type="button"] {
             width: 100%;
             padding: 20px 40px;
-            background-color: red;
+            background-color: transparent;
             color: white;
             font-size: 24px;
             font-weight: bold;
             border: none;
             border-radius: 5px;
+        }
+
+        table {
+            border: 1px solid black;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         input[type="text"] {
@@ -48,9 +58,17 @@
     </style>
 </head>
 
+
+
+
 <body>
 
-    <!-- Use Table to Create Calculator Structure Design -->
+    <div>
+       <button onclick=" changed()">CLICK HERE TO CHANGE CALULATOR COLOR!</button>
+       <p onclick="changed()"></p>
+    </div>
+
+
     <table id="calcu">
         <tr>
             <td colspan="3"><input type="text" id="result"></td>
@@ -172,44 +190,6 @@
     </script>
 </body>
 
-</html>
- 
 
-<html>
-    <body>
-
-    Here is a working demo like below:
-
-    View(Index.cshtml):
-
-    <form asp-controller="User" asp-action="Products"
-          asp-route-categoryId="@ViewBag.CategoryId"
-          asp-route-searchName="@ViewBag.SearchName"
-          data-ajax="true"
-          data-ajax-method="Get"
-          data-ajax-update="product"
-          data_ajax_mode="replace">
-        <select name="sortOrder" class="form-control" onchange="orderByChanged()">
-            <option selected> Please select one</option>
-            <option value="date_desc">
-                date_desc
-            </option>
-        </select>
-        <input type="submit" value="Submit" class="btn btn-primary" />
-    </form>
-
-    @section Scripts {
-        @{
-            await Html.RenderPartialAsync("_ValidationScriptsPartial");
-        }
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.js" integrity="sha256-v2nySZafnswY87um3ymbg7p9f766IQspC5oqaqZVX2c=" crossorigin="anonymous"></script>
-        <script>
-            function orderByChanged() {
-                $('form').submit();
-            }
-        </script>
-    }
-
-    </body>
 
 </html>

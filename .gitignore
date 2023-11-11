@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/tutor1/tutor1.csproj
+/tutor1/Models/DogModel.cs
+/tutor1/Models/CarModel.cs
+/tutor1/Models/IndexViewModel.cs
+/tutor1/Models/PersonModel.cs
+/tutor1/Views/Home/Privacy.cshtml
+/tutor1.sln
+/tutor1.sln

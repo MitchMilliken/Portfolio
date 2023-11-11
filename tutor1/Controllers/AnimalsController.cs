@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using System.Data.Common;
 using tutor1.Models;
 
 namespace tutor1.Controllers
@@ -29,6 +30,13 @@ namespace tutor1.Controllers
         [HttpPost]
         public IActionResult Create(AnimalsViewModel viewmodel)
         {
+            if (ModelState.IsValid == false) 
+            {
+                var animals = _dbConnection.Query<AnimalModel>("Select * From Animals");
+                viewmodel.Animals = animals.ToList();
+                return View("Index", viewmodel);
+            }
+
             var sql = "INSERT INTO Animals (Name, Color, Age, Extinct)" +
                       "VALUES (@Name, @Color, @Age, @Extinct);";
 
@@ -45,5 +53,13 @@ namespace tutor1.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public IActionResult ClearTable(AnimalsViewModel viewmodel)
+        {
+            var sql = "DELETE FROM Animals";
+            _dbConnection.Execute(sql);
+            return RedirectToAction("Index");
+        }
     }
+
 }

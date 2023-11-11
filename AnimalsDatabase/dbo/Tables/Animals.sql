@@ -6,3 +6,5 @@
     [Age] int not null,
     [Extinct] bit not null
 )
+
+
